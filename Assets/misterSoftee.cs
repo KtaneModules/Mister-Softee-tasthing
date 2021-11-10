@@ -259,9 +259,9 @@ public class misterSoftee : MonoBehaviour
                             ordered.Add(Array.IndexOf(iceCreamNames, treat));
                             match = true;
                         }
+                        if (priorityLists[child].Count() == 0)
+                            ordered.Add(14);
                     }
-                    if (priorityLists[child].Count() == 0)
-                        ordered.Add(14);
                 }
                 Debug.LogFormat("[Mister Softee #{0}] {1} ordered a {2}.", moduleId, childNames[child], iceCreamNames[ordered.Last()]);
             }
@@ -317,6 +317,7 @@ public class misterSoftee : MonoBehaviour
         submitButton.AddInteractionPunch(.25f);
         if (moduleSolved)
             return;
+        Debug.LogFormat("[Mister Softee #{0}] These amounts of ice cream were bought (reading order): {1}.", moduleId, ordersPlaced.Join(", "));
         if (Enumerable.Range(0, 9).All(x => ordersPlaced[x] == solution[x]))
         {
             Debug.LogFormat("[Mister Softee #{0}] A perfect amount of ice cream was ordered. Module solved!", moduleId);
