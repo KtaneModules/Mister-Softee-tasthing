@@ -137,8 +137,11 @@ public class misterSoftee : MonoBehaviour
         };
         lever.OnInteractEnded += delegate ()
         {
-            motorRef.StopSound();
-            motorRef = null;
+            if (motorRef != null)
+            {
+                motorRef.StopSound();
+                motorRef = null;
+            }
             leverHeld = false;
             if (!moduleSolved && !melted && freezerMode)
                 audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.BigButtonRelease, lever.transform);
