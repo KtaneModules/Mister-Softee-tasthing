@@ -371,7 +371,7 @@ public class misterSoftee : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timeLimit--;
         }
-        Debug.LogFormat("[Mister Softee #{0}] Module solved{!}", moduleId, melted ? "..." : "!");
+        Debug.LogFormat("[Mister Softee #{0}] Module solved{1}", moduleId, melted ? "..." : "!");
         moduleSolved = true;
         freezerMode = false;
         var elapsed = 0f;

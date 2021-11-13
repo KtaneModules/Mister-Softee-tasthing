@@ -17,6 +17,6 @@ MonoBehaviour:
   description: "If you have trouble driving, blame it on the rocky road.\r\n\r\nModule
     idea by Vincology, implementation by TasThing.\r\n\r\n[url=https://ktane.timwi.de/HTML/Mister%20Softee.html]Manual
     HTML[/url]\r\n[url=https://ktane.timwi.de/PDF/Mister%20Softee.pdf]Manual PDF[/url]"
-  version: 1.0.2
+  version: 1.0.3
   outputFolder: build
   previewImage: {fileID: 2800000, guid: a124e48198614ae40b18187d8850c2ab, type: 3}
