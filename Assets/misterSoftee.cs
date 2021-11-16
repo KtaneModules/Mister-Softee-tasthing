@@ -107,8 +107,8 @@ public class misterSoftee : MonoBehaviour
                 if (lastHighlightedButton == ix)
                     return;
                 lastHighlightedButton = ix;
-                var words = new string[] { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE" };
-                screenText.text = ordersPlaced[ix] < 10 ? words[ordersPlaced[ix]] : "LOTS";
+                var words = new string[] { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN" };
+                screenText.text = ordersPlaced[ix] < 11 ? words[ordersPlaced[ix]] : ordersPlaced[ix].ToString();
             };
             button.OnHighlightEnded += delegate ()
             {
@@ -291,8 +291,8 @@ public class misterSoftee : MonoBehaviour
             return;
         var ix = Array.IndexOf(buttons, button);
         ordersPlaced[ix]++;
-        var words = new string[] { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE" };
-        screenText.text = ordersPlaced[ix] < 10 ? words[ordersPlaced[ix]] : "LOTS";
+        var words = new string[] { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN" };
+        screenText.text = ordersPlaced[ix] < 11 ? words[ordersPlaced[ix]] : ordersPlaced[ix].ToString();
         button.GetComponent<Renderer>().material.color = buttonRed;
         if (buttonFadeAnimations[ix] != null)
         {
