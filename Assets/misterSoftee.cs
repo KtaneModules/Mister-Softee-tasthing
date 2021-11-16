@@ -234,7 +234,7 @@ public class misterSoftee : MonoBehaviour
 
         var string1 = oldPosition + "-" + currentPosition;
         var string2 = currentPosition + "-" + oldPosition;
-        if (childPlacements.Keys.Contains(string1) || childPlacements.Keys.Contains(string2))
+        if (childPlacements.ContainsKey(string1) || childPlacements.ContainsKey(string2))
         {
             var str = "";
             try
