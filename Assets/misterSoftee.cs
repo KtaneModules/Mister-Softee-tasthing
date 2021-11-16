@@ -276,7 +276,7 @@ public class misterSoftee : MonoBehaviour
         if (pathsTaken.Any(x => x.Contains(oldPosition) && x.Contains(currentPosition)))
         {
             duplicatedPath = true;
-            Debug.LogFormat("[Mister Softee #{0}] Duplicated road taken. Hit the breaks!", moduleId);
+            Debug.LogFormat("[Mister Softee #{0}] Duplicated road taken. Hit the brakes!", moduleId);
         }
         pathsTaken.Add(new int[] { oldPosition, currentPosition });
     }
