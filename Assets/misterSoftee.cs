@@ -262,9 +262,9 @@ public class misterSoftee : MonoBehaviour
                             ordered.Add(Array.IndexOf(iceCreamNames, treat));
                             match = true;
                         }
-                        if (priorityLists[child].Count() == 0)
-                            ordered.Add(14);
                     }
+                    if (!match)
+                        ordered.Add(14);
                 }
                 Debug.LogFormat("[Mister Softee #{0}] {1} ordered a {2}.", moduleId, childNames[child], iceCreamNames[ordered.Last()]);
             }
