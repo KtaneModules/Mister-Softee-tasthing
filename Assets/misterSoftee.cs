@@ -234,7 +234,7 @@ public class misterSoftee : MonoBehaviour
 
         var string1 = oldPosition + "-" + currentPosition;
         var string2 = currentPosition + "-" + oldPosition;
-        if (childPlacements.Keys.Contains(string1) || childPlacements.Keys.Contains(string2))
+        if (childPlacements.ContainsKey(string1) || childPlacements.ContainsKey(string2))
         {
             var str = "";
             try
@@ -262,9 +262,9 @@ public class misterSoftee : MonoBehaviour
                             ordered.Add(Array.IndexOf(iceCreamNames, treat));
                             match = true;
                         }
-                        if (priorityLists[child].Count() == 0)
-                            ordered.Add(14);
                     }
+                    if (!match)
+                        ordered.Add(14);
                 }
                 Debug.LogFormat("[Mister Softee #{0}] {1} ordered a {2}.", moduleId, childNames[child], iceCreamNames[ordered.Last()]);
             }
@@ -276,7 +276,7 @@ public class misterSoftee : MonoBehaviour
         if (pathsTaken.Any(x => x.Contains(oldPosition) && x.Contains(currentPosition)))
         {
             duplicatedPath = true;
-            Debug.LogFormat("[Mister Softee #{0}] Duplicated road taken. Hit the breaks!", moduleId);
+            Debug.LogFormat("[Mister Softee #{0}] Duplicated road taken. Hit the brakes!", moduleId);
         }
         pathsTaken.Add(new int[] { oldPosition, currentPosition });
     }
