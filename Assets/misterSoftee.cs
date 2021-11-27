@@ -372,6 +372,11 @@ public class misterSoftee : MonoBehaviour
             timeLimit--;
         }
         Debug.LogFormat("[Mister Softee #{0}] Module solved{1}", moduleId, melted ? "..." : "!");
+        if (motorRef != null)
+        {
+            motorRef.StopSound();
+            motorRef = null;
+        }
         moduleSolved = true;
         freezerMode = false;
         var elapsed = 0f;
@@ -557,6 +562,42 @@ public class misterSoftee : MonoBehaviour
 
     private IEnumerator TwitchHandleForcedSolve()
     {
-        yield return null;
+        if (freezerMode)
+        {
+            if (leverHeld)
+            {
+                lever.OnInteractEnded();
+                yield return null;
+                lever.OnInteract();
+            }
+            else
+                lever.OnInteract();
+            while (!moduleSolved)
+            {
+                yield return true;
+                yield return null;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                if (ordersPlaced[i] > solution[i])
+                {
+                    clearButton.OnInteract();
+                    break;
+                }
+            }
+            yield return new WaitForSeconds(.1f);
+            for (int i = 0; i < 9; i++)
+            {
+                while (ordersPlaced[i] != solution[i])
+                {
+                    buttons[i].OnInteract();
+                    yield return new WaitForSeconds(.1f);
+                }
+            }
+            submitButton.OnInteract();
+        }
     }
 }
