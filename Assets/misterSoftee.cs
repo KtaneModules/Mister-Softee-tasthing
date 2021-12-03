@@ -357,6 +357,10 @@ public class misterSoftee : MonoBehaviour
             elapsed += Time.deltaTime;
         }
         moduleTransform.localEulerAngles = new Vector3(0f, 0f, 180f);
+        for (int i = 0; i < 9; i++)
+            buttons[i].gameObject.SetActive(false);
+        clearButton.gameObject.SetActive(false);
+        submitButton.gameObject.SetActive(false);
         yield return new WaitForSeconds(.1f);
         StartCoroutine(FreezerCountdown());
         StartCoroutine(ProgressFreezer());
@@ -379,6 +383,10 @@ public class misterSoftee : MonoBehaviour
         }
         moduleSolved = true;
         freezerMode = false;
+        for (int i = 0; i < 9; i++)
+            buttons[i].gameObject.SetActive(true);
+        clearButton.gameObject.SetActive(true);
+        submitButton.gameObject.SetActive(true);
         var elapsed = 0f;
         var duration = .25f;
         while (elapsed < duration)
