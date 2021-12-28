@@ -520,6 +520,7 @@ public class misterSoftee : MonoBehaviour
         {
             yield return null;
             clearButton.OnInteract();
+            screenText.text = "";
         }
         else if (input == "submit")
         {
